@@ -1,6 +1,6 @@
 ## norar
 
-norar is a small utility built on 7zip that will decompress archives in the specified directory silently.
+norar is a small utility built on 7zip that will decompress archives from a specified directory silently.
 
 
 
