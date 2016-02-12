@@ -1,7 +1,9 @@
 ## norar
 
-norar is a small utility built on 7zip that will decompress archives from a specified directory silently.
-You can specify extensions and exclude some files using regular expressions.
+norar is a small utility built on 7zip that will decompress archives from a specified directory silently. You can specify extensions and exclude some files using regular expressions.
+
+
+norar will also store the archive's hashes to avoid reprocessing them unless instructed otherwise.
 
 
 
@@ -10,11 +12,11 @@ Compatible formats are: 7z, XZ, BZIP2, GZIP, TAR, ZIP, WIM, AR, ARJ, CAB, CHM, C
 
 **Basic Usage:**
 
-    norar "top_dir" "dest_dir" "rar,zip,7z" [switches]
+    norar.exe "top_dir" "dest_dir" "rar,zip,7z" [switches]
 
 or
 
-    norar usecfg "C:\Path\to\config"
+    norar.exe usecfg "C:\Path\to\config"
 
 
 **Switches:**
