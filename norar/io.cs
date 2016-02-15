@@ -163,12 +163,17 @@ namespace norar
                 string file_hash = hash.Substring(i + 1, hash.Length - i - 1);
                 try
                 {
-                    buffer.Add(file_name, file_hash);
+                    buffer.Add(file_hash, file_name);
+                }
+                catch (ArgumentException)
+                {
+                    console.Write("File " + file_name + " already exists. Probably a duplicate file. More details in logs.", console.msgType.warning, true, false);
+                    Log("DUPLICATE: " + file_name + " HASH: " + file_hash);
                 }
                 catch (Exception e)
                 {
                     console.Write("An error occured building hashes dictionary, check the logfile.", console.msgType.error);
-                    Log("ERROR: " + e.Message);
+                    Log("ERROR: file" + file_name + " hash: " + file_hash + " || " + e.Message);
                 }
             }
             return buffer;
@@ -197,7 +202,7 @@ namespace norar
                 // Compare
                 foreach (var pair in hashes)
                 {
-                    if (pair.Value == file_hash)
+                    if (pair.Key == file_hash)
                         return true;
                 }
             }
@@ -221,7 +226,7 @@ namespace norar
                 string file_name = Path.GetFileName(file);
                 foreach (var pair in hashes)
                 {
-                    if (pair.Key == file_name)
+                    if (pair.Value == file_name)
                         return true;
                 }
             }
