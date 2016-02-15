@@ -350,6 +350,7 @@ namespace norar
             string now = DateTime.Now.ToString("MM-dd-yy || hh:mm:ss");
             try
             {
+                if(!Directory.Exists(main.log_path)) { Directory.CreateDirectory(main.log_path); }
                 File.AppendAllText(main.log_path + "norar.log", "[" + now + "] " + msg + Environment.NewLine);
             }
             catch (Exception e)
