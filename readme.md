@@ -1,4 +1,4 @@
-## norar
+### norar
 
 norar is a small utility built on 7zip that will decompress archives from a specified directory silently. You can specify extensions and exclude some files using regular expressions.
 
